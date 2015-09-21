@@ -16,9 +16,10 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
-from views import test_page
+import views
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^test_page/', test_page),
+    url(r'^test_page/', views.test_page),
+    url(r'^eventbrite/create_event', views.eventbrite_create_event),
 ]
