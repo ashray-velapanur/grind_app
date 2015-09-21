@@ -16,3 +16,11 @@ def eventbrite_create_event(request):
 	end_time = request.GET.get('end_time')
 	response = api.create_event(name, start_time, end_time)
 	return HttpResponse(json.dumps(response), content_type="application/json")
+
+def eventbrite_create_tickets(request):
+	api = EventbriteAPI()
+	name = request.GET.get('name')
+	id = request.GET.get('id')
+	quantity = request.GET.get('quantity')
+	response = api.create_tickets(id, name, quantity)
+	return HttpResponse(json.dumps(response), content_type="application/json")

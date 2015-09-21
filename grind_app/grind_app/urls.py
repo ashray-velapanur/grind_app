@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^test_page/', views.test_page),
     url(r'^eventbrite/create_event', views.eventbrite_create_event),
+    url(r'^eventbrite/create_tickets', views.eventbrite_create_tickets),
 ]

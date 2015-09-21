@@ -20,3 +20,13 @@ class EventbriteAPI(object):
 		}
 		response = json.loads(urllib.urlopen(url, data=urllib.urlencode(request_params)).read())
 		return response
+
+	def create_tickets(self, id, name, quantity):
+		url = "https://www.eventbriteapi.com/v3/events/%s/ticket_classes/?token=%s"%(id, self.token)
+		request_params = {
+		    "ticket_class.name": name,
+		    "ticket_class.free": True,
+		    "ticket_class.quantity_total": quantity
+		}
+		response = json.loads(urllib.urlopen(url, data=urllib.urlencode(request_params)).read())
+		return response
