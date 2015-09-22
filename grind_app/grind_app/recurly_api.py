@@ -19,3 +19,10 @@ class RecurlyAPI(object):
 			acct['company_name'] = account.company_name
 			accounts.append(acct)
 		return {'Accounts': accounts}
+
+	def create_account(self, code, email, first_name, last_name):
+		account = Account(account_code=code)
+		account.email = email
+		account.first_name = first_name
+		account.last_name = last_name
+		account.save()

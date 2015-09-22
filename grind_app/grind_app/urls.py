@@ -23,5 +23,6 @@ urlpatterns = [
     url(r'^test_page/', views.test_page),
     url(r'^eventbrite/create_event', views.eventbrite_create_event),
     url(r'^eventbrite/create_tickets', views.eventbrite_create_tickets),
-    url(r'^recurly/get_accounts', views.recurly_get_accounts)
+    url(r'^recurly/get_accounts', views.recurly_get_accounts),
+    url(r'^recurly/create_account', views.recurly_create_account)
 ]

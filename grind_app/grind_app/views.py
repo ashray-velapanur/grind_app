@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, redirect
 
 import logging
 import json
@@ -30,3 +30,8 @@ def recurly_get_accounts(request):
 	api = RecurlyAPI()
 	response = api.get_accounts()
 	return HttpResponse(json.dumps(response), content_type="application/json")
+
+def recurly_create_account(request):
+	api = RecurlyAPI()
+	api.create_account(request.GET.get('code'), request.GET.get('email'), request.GET.get('first_name'), request.GET.get('last_name'))
+	return redirect('/recurly/get_accounts')
