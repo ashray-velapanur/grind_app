@@ -5,6 +5,7 @@ import logging
 import json
 
 from eventbrite import EventbriteAPI
+from recurly_api import RecurlyAPI
 
 def test_page(request):
 	return render_to_response('templates/test-page.html')
@@ -23,4 +24,9 @@ def eventbrite_create_tickets(request):
 	id = request.GET.get('id')
 	quantity = request.GET.get('quantity')
 	response = api.create_tickets(id, name, quantity)
+	return HttpResponse(json.dumps(response), content_type="application/json")
+
+def recurly_get_accounts(request):
+	api = RecurlyAPI()
+	response = api.get_accounts()
 	return HttpResponse(json.dumps(response), content_type="application/json")
